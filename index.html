@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yeshua Engenharia | Alto Padrão</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
             --preto-puro: #000000;
@@ -18,6 +18,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -33,12 +34,53 @@
             font-weight: 800;
         }
 
+        /* ================= NAVBAR (MENU SUPERIOR) ================= */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-logo {
+            color: var(--branco);
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--branco);
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ccc;
+        }
+
         /* ================= HERO PARALLAX ================= */
         .hero {
             position: relative;
             height: 100vh;
             width: 100%;
-            /* IMAGEM 1: Imagem de fundo Parallax (Ex: Uma obra de alto padrão) */
+            /* IMAGEM 1: Imagem de fundo Parallax */
             background-image: url('coloque a imagem aqui');
             background-attachment: fixed;
             background-position: center;
@@ -49,11 +91,10 @@
             justify-content: center;
         }
 
-        /* Máscara escura elegante para destacar a logo */
         .hero-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.8));
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.9));
             z-index: 1;
         }
 
@@ -61,13 +102,47 @@
             position: relative;
             z-index: 2;
             text-align: center;
+            padding: 0 20px;
+            margin-top: 60px; /* Compensa o menu superior */
         }
 
         /* IMAGEM 2: Logo da Empresa */
         .hero-content img {
-            max-width: 450px;
-            width: 90%;
-            filter: drop-shadow(0px 4px 20px rgba(0,0,0,0.6));
+            max-width: 350px;
+            width: 100%;
+            margin-bottom: 30px;
+            filter: drop-shadow(0px 4px 20px rgba(0,0,0,0.8));
+        }
+
+        .hero-frase {
+            color: var(--branco);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-whatsapp {
+            display: inline-block;
+            background-color: var(--branco);
+            color: var(--preto-puro);
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 1px;
+            border: 2px solid var(--branco);
+            transition: all 0.4s ease;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: transparent;
+            color: var(--branco);
         }
 
         /* ================= SEÇÕES GERAIS ================= */
@@ -109,8 +184,6 @@
         .img-fachada {
             width: 100%;
             height: 500px;
-            object-fit: cover;
-            /* IMAGEM 3: Coloque a foto da fachada aqui no src */
             background-image: url('coloque a imagem aqui');
             background-size: cover;
             background-position: center;
@@ -118,9 +191,7 @@
         }
 
         /* ================= OBRAS (SERVIÇO PRINCIPAL) ================= */
-        .obras-container {
-            background-color: var(--branco);
-        }
+        .obras-container { background-color: var(--branco); }
 
         .grid-obras {
             display: grid;
@@ -145,24 +216,17 @@
             font-size: 1.4rem;
             margin-bottom: 15px;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        /* ================= FACILITIES (LIMPEZA E PORTARIA) ================= */
-        /* DIV EXCLUSIVA E COM DESTAQUE TOTAL */
+        /* ================= FACILITIES ================= */
         .facilities-section {
             background-color: var(--preto-fosco);
             color: var(--branco);
             text-align: center;
         }
 
-        .facilities-section .titulo-luxo {
-            color: var(--branco);
-        }
-
-        .facilities-section .linha-fina {
-            background-color: var(--branco);
-        }
+        .facilities-section .titulo-luxo { color: var(--branco); }
+        .facilities-section .linha-fina { background-color: var(--branco); }
 
         .facilities-grid {
             display: flex;
@@ -185,15 +249,8 @@
             color: var(--branco);
         }
 
-        .facility-item p {
-            color: #aaa;
-            font-size: 1.1rem;
-        }
-
-        /* ================= PORTFÓLIO (ANTES/DEPOIS E PROCESSO) ================= */
-        .portfolio-section {
-            background-color: var(--cinza-claro);
-        }
+        /* ================= PORTFÓLIO (TEXTO EM CIMA DA FOTO) ================= */
+        .portfolio-section { background-color: var(--cinza-claro); }
 
         .antes-depois-grid {
             display: grid;
@@ -213,23 +270,30 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.6s ease;
+            filter: brightness(0.8); /* Escurece um pouco a foto para o texto aparecer bem */
         }
 
         .img-box:hover img {
             transform: scale(1.05);
+            filter: brightness(0.5);
         }
 
-        .tag-luxo {
+        /* TEXTO CRAVADO BEM NO MEIO DA FOTO */
+        .texto-em-cima {
             position: absolute;
-            bottom: 30px;
-            left: 30px;
-            background: var(--branco);
-            color: var(--preto-puro);
-            padding: 10px 20px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--branco);
+            padding: 15px 40px;
             font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
+            font-size: 2rem;
             font-weight: bold;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            border: 2px solid var(--branco);
+            pointer-events: none; /* Pra não atrapalhar o mouse nas fotos */
         }
 
         .processo-box {
@@ -238,7 +302,7 @@
             margin-bottom: 40px;
         }
 
-        /* ================= NOSSA EQUIPE (DESTAQUE) ================= */
+        /* ================= NOSSA EQUIPE ================= */
         .equipe-section {
             display: flex;
             align-items: center;
@@ -251,15 +315,8 @@
             padding: 80px 10%;
         }
 
-        .equipe-texto h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .equipe-texto p {
-            font-size: 1.2rem;
-            color: #ccc;
-        }
+        .equipe-texto h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .equipe-texto p { font-size: 1.2rem; color: #ccc; }
 
         .equipe-imagem {
             flex: 1;
@@ -270,9 +327,9 @@
             background-position: center;
         }
 
-        /* ================= PROJETO FINALIZADO (HERO INFERIOR) ================= */
+        /* ================= CHAMADA FINAL ================= */
         .obra-finalizada {
-            height: 80vh;
+            height: 70vh;
             /* IMAGEM 8: Obra Destaque Finalizada */
             background-image: url('coloque a imagem aqui');
             background-attachment: fixed;
@@ -282,22 +339,29 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            text-align: center;
+            flex-direction: column;
         }
 
         .obra-finalizada::after {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.7);
         }
 
         .obra-finalizada h2 {
             position: relative;
             z-index: 2;
             color: var(--branco);
-            font-size: 4rem;
-            text-align: center;
-            letter-spacing: 5px;
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .obra-finalizada .btn-whatsapp {
+            position: relative;
+            z-index: 2;
         }
 
         /* ================= FOOTER ================= */
@@ -313,90 +377,102 @@
             .sobre-grid, .antes-depois-grid { grid-template-columns: 1fr; }
             .equipe-section { flex-direction: column; }
             .equipe-imagem { width: 100%; height: 400px; }
-            .titulo-luxo { font-size: 2.2rem; }
+            .nav-links { display: none; } /* Esconde links no mobile por enquanto */
         }
     </style>
 </head>
 <body>
 
+    <nav>
+        <div class="nav-logo">YESHUA</div>
+        <ul class="nav-links">
+            <li><a href="#sobre">A Empresa</a></li>
+            <li><a href="#servicos">Engenharia</a></li>
+            <li><a href="#facilities">Facilities</a></li>
+            <li><a href="#portfolio">Portfólio</a></li>
+        </ul>
+    </nav>
+
     <header class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <img src="coloque a imagem aqui" alt="Yeshua Engenharia Logo">
+            <h1 class="hero-frase">Construindo o seu projeto com eficiência, excelência e alto padrão.</h1>
+            <a href="https://wa.me/5500000000000" class="btn-whatsapp" target="_blank">Fale com um Especialista</a>
         </div>
     </header>
 
-    <section class="section-padding obras-container">
+    <section id="sobre" class="section-padding obras-container">
         <h2 class="titulo-luxo">A Construtora</h2>
         <div class="linha-fina"></div>
         <div class="sobre-grid">
             <div class="sobre-texto">
-                <p>A <strong>YESHUA ENGENHARIA</strong>, desde 2014, é sinônimo de excelência e solidez. Atuamos com uma equipe qualificada e multidisciplinar de técnicos, engenheiros e arquitetos, oferecendo soluções completas na Construção Civil.</p>
-                <p>Nossa missão é realizar obras industriais e civis com qualidade absoluta, segurança rigorosa e ética inegociável. Entregamos resultados que superam as mais altas expectativas do mercado.</p>
+                <p>A <strong>YESHUA ENGENHARIA</strong> atua desde 2014 com uma equipe qualificada e multidisciplinar de técnicos, engenheiros e arquitetos, oferecendo soluções completas na Construção Civil.</p>
+                <p>Nossa missão é realizar obras industriais e civis com qualidade absoluta, segurança rigorosa e ética inegociável. Entregamos resultados que superam as expectativas dos nossos clientes.</p>
             </div>
             <div class="img-fachada"></div>
         </div>
     </section>
 
-    <section class="section-padding">
+    <section id="servicos" class="section-padding">
         <h2 class="titulo-luxo">Engenharia & Obras</h2>
         <div class="linha-fina"></div>
         <div class="grid-obras">
             <div class="card-obra">
                 <h3>Construção Civil</h3>
-                <p>Execução rigorosa de superestrutura, infraestrutura e fundações. Do pilar à laje, construímos com máxima precisão e segurança.</p>
+                <p>Execução rigorosa de superestrutura, infraestrutura e fundações. Construímos com máxima precisão e segurança.</p>
             </div>
             <div class="card-obra">
                 <h3>Instalações Técnicas</h3>
-                <p>Projetos de alta performance para instalações hidráulicas e elétricas. Conectividade e funcionalidade impecáveis para sua edificação.</p>
+                <p>Projetos de alta performance para instalações hidráulicas e elétricas. Conectividade e funcionalidade para sua obra.</p>
             </div>
             <div class="card-obra">
                 <h3>Terraplanagem</h3>
-                <p>Preparação perfeita do terreno. Corte, nivelamento e estruturação do solo para receber grandes projetos industriais e civis.</p>
+                <p>Preparação perfeita do terreno. Corte, nivelamento e estruturação do solo para receber grandes projetos.</p>
             </div>
             <div class="card-obra">
                 <h3>Projetos & Laudos</h3>
-                <p>Elaboração de diagramas, cálculos minuciosos e laudos técnicos essenciais para atestar a segurança e a legalidade da obra.</p>
+                <p>Elaboração de diagramas, cálculos e laudos técnicos essenciais para atestar a segurança e a legalidade da obra.</p>
             </div>
         </div>
     </section>
 
-    <section class="section-padding facilities-section">
+    <section id="facilities" class="section-padding facilities-section">
         <h2 class="titulo-luxo">Facilities: Terceirização Premium</h2>
         <div class="linha-fina"></div>
         <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto; color: #ccc;">
-            Além da nossa excelência em obras, a Yeshua oferece gestão completa de facilities. Cuidamos do seu patrimônio com o mesmo rigor que construímos.
+            Cuidamos do seu patrimônio com o mesmo rigor que construímos.
         </p>
         <div class="facilities-grid">
             <div class="facility-item">
                 <h3>Limpeza e Conservação</h3>
-                <p>Equipes de asseio altamente treinadas. Garantimos a manutenção impecável de ambientes corporativos, condomínios e indústrias, com produtos e processos de alto padrão.</p>
+                <p>Garantimos a manutenção impecável de ambientes corporativos, condomínios e indústrias, com processos de alto padrão.</p>
             </div>
             <div class="facility-item">
                 <h3>Portaria e Controle</h3>
-                <p>Profissionais qualificados para controle de acesso e segurança patrimonial. Protocolos rigorosos para garantir a tranquilidade do seu empreendimento 24h por dia.</p>
+                <p>Profissionais qualificados para controle de acesso e segurança patrimonial. Protocolos rigorosos 24h por dia.</p>
             </div>
         </div>
     </section>
 
-    <section class="section-padding portfolio-section">
+    <section id="portfolio" class="section-padding portfolio-section">
         <h2 class="titulo-luxo">Nosso Portfólio</h2>
         <div class="linha-fina"></div>
         
         <div class="antes-depois-grid">
             <div class="img-box">
                 <img src="coloque a imagem aqui" alt="Obra Antes">
-                <div class="tag-luxo">Antes</div>
+                <div class="texto-em-cima">Antes</div>
             </div>
             <div class="img-box">
                 <img src="coloque a imagem aqui" alt="Obra Depois">
-                <div class="tag-luxo">Depois</div>
+                <div class="texto-em-cima">Depois</div>
             </div>
         </div>
 
         <div class="img-box processo-box">
             <img src="coloque a imagem aqui" alt="Processo de Obra em Andamento">
-            <div class="tag-luxo">Processo de Obra</div>
+            <div class="texto-em-cima">Processo</div>
         </div>
     </section>
 
@@ -405,14 +481,13 @@
             <h2 style="font-family: 'Playfair Display', serif;">Quem Faz Acontecer</h2>
             <div class="linha-fina" style="margin: 0 0 30px 0; background-color: var(--branco);"></div>
             <p>O maior pilar da Yeshua é o fator humano. Contamos com um time implacável de engenheiros, arquitetos, mestres de obras e especialistas em facilities.</p>
-            <br>
-            <p>Trabalhamos com dedicação extrema, do planejamento à entrega das chaves, garantindo que cada projeto reflita a grandiosidade da nossa marca.</p>
         </div>
         <div class="equipe-imagem"></div>
     </section>
 
     <section class="obra-finalizada">
-        <h2>Padrão Yeshua de Entrega</h2>
+        <h2>Transforme seu projeto em realidade</h2>
+        <a href="https://wa.me/5500000000000" class="btn-whatsapp" target="_blank">Solicite um Orçamento</a>
     </section>
 
     <footer>
