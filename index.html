@@ -34,7 +34,7 @@
             font-weight: 700;
         }
 
-        /* ================= NAVBAR (TRAVADA EM UMA LINHA) ================= */
+        /* ================= NAVBAR TRAVADA EM UMA LINHA ================= */
         nav {
             position: fixed;
             top: 0;
@@ -47,7 +47,7 @@
             align-items: center;
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            flex-wrap: nowrap; /* Impede que quebre a linha */
+            flex-wrap: nowrap; /* Trava em uma linha só */
         }
 
         .nav-brand-container {
@@ -69,7 +69,7 @@
             font-size: 1.5rem;
             letter-spacing: 1px;
             font-weight: 500;
-            white-space: nowrap; /* Não quebra o texto da logo */
+            white-space: nowrap; /* Não quebra o texto */
         }
 
         .nav-links {
@@ -79,7 +79,7 @@
             gap: 25px;
             margin: 0;
             padding: 0;
-            flex-wrap: nowrap; /* Impede que os atalhos quebrem a linha */
+            flex-wrap: nowrap; /* Trava em uma linha só */
         }
 
         .nav-links a {
@@ -94,10 +94,10 @@
 
         .nav-links a:hover { color: var(--branco); }
 
-        /* ================= HERO (LIMPO) ================= */
+        /* ================= HERO COM ALTURA REDUZIDA E LOGO PERFEITA ================= */
         .hero {
             position: relative;
-            height: 90vh;
+            height: 75vh; /* Altura reduzida de 90vh para 75vh */
             width: 100%;
             background-image: url('IMG-20260403-WA0124.jpg'); 
             background-attachment: fixed;
@@ -122,12 +122,23 @@
             z-index: 2;
             text-align: center;
             padding: 0 20px;
+            margin-top: 60px; 
             max-width: 800px;
+        }
+
+        /* LOGO DO HERO CORRIGIDA (PROPORÇÕES PERFEITAS) */
+        .hero-logo-image {
+            width: 100%;
+            max-width: 250px; /* Limita o tamanho, mas mantém a proporção */
+            height: auto; /* Deixa a altura se ajustar naturalmente, sem espremer */
+            margin: 0 auto 30px auto;
+            display: block;
+            filter: invert(1);
         }
 
         .hero-frase {
             color: #ffffff;
-            font-size: 1.6rem; /* Aumentei um pouquinho já que a logo saiu */
+            font-size: 1.3rem;
             font-weight: 300;
             letter-spacing: 1px;
             margin-bottom: 35px;
@@ -138,7 +149,7 @@
             display: inline-block;
             background-color: transparent;
             color: var(--branco);
-            padding: 12px 35px;
+            padding: 10px 30px;
             font-size: 0.85rem;
             font-weight: 500;
             text-transform: uppercase;
@@ -281,42 +292,44 @@
         .footer-contato { margin-top: 20px; margin-bottom: 30px; font-size: 0.95rem; color: #aaa; }
         .footer-contato a { color: #fff; text-decoration: none; }
 
-        /* ================= RESPONSIVIDADE ================= */
+        /* ================= RESPONSIVIDADE (ELEGANTE E LADO A LADO) ================= */
         @media (max-width: 768px) {
             /* AJUSTE FINO DA BARRA PARA CABER TUDO EM UMA LINHA */
-            nav { 
-                padding: 10px 2%; 
-            }
+            nav { padding: 10px 2%; }
             .nav-brand-container { gap: 5px; }
             .nav-logo-icon { max-height: 1.2rem; }
             .nav-logo-text { font-size: 1.1rem; }
             
             .nav-links { gap: 10px; } 
-            .nav-links a { 
-                font-size: 0.6rem; 
-                letter-spacing: 0px; 
-            }
+            .nav-links a { font-size: 0.6rem; letter-spacing: 0px; }
             
             .section-padding { padding: 60px 5%; }
             
-            .hero { height: 85vh; }
+            .hero { height: 75vh; }
             
-            .hero-frase { font-size: 1.1rem; margin-bottom: 25px; line-height: 1.4; }
+            /* Logo agora ajusta perfeitamente sem amassar */
+            .hero-logo-image { 
+                max-width: 200px; /* Um pouco menor no celular, mas PROPORCIONAL */
+                margin-bottom: 20px;
+            }
+            
+            .hero-frase { font-size: 0.95rem; margin-bottom: 25px; line-height: 1.4; }
             .btn-whatsapp { padding: 12px 25px; font-size: 0.8rem; }
 
             .titulo-luxo { font-size: 1.8rem; margin-bottom: 10px; }
             .linha-fina { margin-bottom: 30px; width: 40px; }
 
-            .sobre-grid { gap: 15px; }
+            /* Mantém o grid Lado a Lado no celular, mas adapta alturas e tamanhos */
+            .sobre-grid { gap: 15px; grid-template-columns: 1fr 1fr; /* Força lado a lado */ }
             .sobre-texto p { font-size: 0.8rem; margin-bottom: 10px; line-height: 1.5; }
             .img-fachada { height: 280px; box-shadow: -8px 8px 0px var(--cinza-claro); }
 
-            .antes-depois-grid { gap: 10px; }
+            .antes-depois-grid { grid-template-columns: 1fr 1fr; /* Força lado a lado */ gap: 10px; }
             .img-box { height: 200px; }
             .texto-em-cima { font-size: 0.9rem; padding: 5px 10px; letter-spacing: 2px; }
             .processo-box { height: 250px; }
 
-            .grid-duas-fotos { gap: 10px; }
+            .grid-duas-fotos { grid-template-columns: 1fr 1fr; /* Força lado a lado */ gap: 10px; }
             .foto-destaque { height: 200px; }
         }
     </style>
@@ -339,6 +352,7 @@
     <header class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
+            <img src="Screenshot_20260404-200709~2.png" alt="Logo Yeshua Engenharia" class="hero-logo-image">
             <h1 class="hero-frase">Excelência, precisão e solidez na construção do seu empreendimento.</h1>
             <a href="https://wa.me/5592993523377" class="btn-whatsapp" target="_blank">Fale com um Especialista</a>
         </div>
@@ -417,7 +431,7 @@
     <section class="projetos-destaque">
         <h2 class="titulo-luxo" style="font-size: 1.8rem;">Projetos de Excelência</h2>
         <div class="linha-fina" style="margin-bottom: 20px;"></div>
-        <p>Entregamos resultados que superam rigorosos padrões de qualidade e segurança exigidos por grandes instituições corporativas.</p>
+        <p>Entregamos resultados que superam rigorosos padrões de qualidade e segurança exigidos por grandes institutions corporativas.</p>
         
         <div class="grid-duas-fotos">
             <div class="foto-destaque obra-1"></div>
