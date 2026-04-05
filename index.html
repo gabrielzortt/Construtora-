@@ -87,12 +87,12 @@
 
         .nav-links a:hover { color: var(--branco); }
 
-        /* ================= HERO ================= */
+        /* ================= HERO (Foto 1: Arte Pronta) ================= */
         .hero {
             position: relative;
             height: 90vh;
             width: 100%;
-            background-image: url('SUA_ARTE_PRONTA_PARA_O_HERO_AQUI.jpg'); 
+            background-image: url('1000191099.jpg'); 
             background-attachment: fixed;
             background-position: center;
             background-size: cover;
@@ -170,11 +170,12 @@
         .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
         .sobre-texto p { font-size: 1rem; margin-bottom: 25px; color: #555; text-align: justify; }
 
+        /* Foto 2: Fachada (Com zoom de 1.4x para aproximar) */
         .img-fachada {
             width: 100%;
             height: 450px;
-            background-image: url('COLOQUE_A_FOTO_DA_FACHADA_AQUI.jpg');
-            background-size: cover;
+            background-image: url('1000191124.jpg');
+            background-size: 140%; /* Aqui está o Zoom para focar mais perto */
             background-position: center;
             box-shadow: -15px 15px 0px var(--cinza-claro);
         }
@@ -254,9 +255,9 @@
             border: 1px solid #333;
         }
 
-        /* FOTOS DO BANCO: */
-        .obra-1 { background-image: url('FOTO_SICOOB_1.jpg'); } 
-        .obra-2 { background-image: url('FOTO_SICOOB_2.jpg'); } 
+        /* Foto 6 e Foto 7: Obras de Excelência (Sicoob) */
+        .obra-1 { background-image: url('IMG-20260404-WA0065.jpg'); } 
+        .obra-2 { background-image: url('IMG-20260404-WA0064.jpg'); } 
 
         /* ================= RODAPÉ ================= */
         footer { background-color: var(--preto-fosco); color: var(--branco); text-align: center; padding: 50px 20px; border-top: 1px solid #222; }
@@ -275,7 +276,9 @@
 
             .sobre-grid { gap: 15px; }
             .sobre-texto p { font-size: 0.75rem; margin-bottom: 10px; line-height: 1.5; }
-            .img-fachada { height: 220px; box-shadow: -10px 10px 0px var(--cinza-claro); }
+            
+            /* Ajuste do zoom da fachada também no celular */
+            .img-fachada { height: 220px; background-size: 150%; box-shadow: -10px 10px 0px var(--cinza-claro); }
 
             .antes-depois-grid { gap: 10px; }
             .img-box { height: 200px; }
@@ -365,17 +368,17 @@
         
         <div class="antes-depois-grid">
             <div class="img-box">
-                <img src="FOTO_ANTES.jpg" alt="Obra Antes">
+                <img src="1000191110.jpg" alt="Obra Antes">
                 <div class="texto-em-cima">Antes</div>
             </div>
             <div class="img-box">
-                <img src="FOTO_DEPOIS.jpg" alt="Obra Depois">
+                <img src="1000191101.jpg" alt="Obra Depois">
                 <div class="texto-em-cima">Depois</div>
             </div>
         </div>
 
         <div class="img-box processo-box">
-            <img src="FOTO_PROCESSO.jpg" alt="Processo">
+            <img src="1000191709.jpg" alt="Processo">
             <div class="texto-em-cima">Processo</div>
         </div>
     </section>
