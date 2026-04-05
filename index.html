@@ -56,8 +56,9 @@
         }
 
         .nav-logo-icon {
-            max-height: 1.6rem;
+            max-height: 2rem;
             width: auto;
+            object-fit: contain;
             display: block;
             filter: invert(1); 
         }
@@ -87,7 +88,7 @@
 
         .nav-links a:hover { color: var(--branco); }
 
-        /* ================= HERO (FOTO 24) ================= */
+        /* ================= HERO ================= */
         .hero {
             position: relative;
             height: 90vh;
@@ -117,6 +118,14 @@
             padding: 0 20px;
             margin-top: 50px; 
             max-width: 800px;
+        }
+
+        .hero-logo {
+            max-height: 120px;
+            max-width: 100%;
+            object-fit: contain;
+            margin-bottom: 25px;
+            filter: invert(1);
         }
 
         .hero-frase {
@@ -166,8 +175,14 @@
             margin: 0 auto 50px auto;
         }
 
-        /* ================= QUEM SOMOS (FOTO 26 - ZOOM) ================= */
-        .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        /* ================= QUEM SOMOS ================= */
+        .sobre-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr;
+            gap: 40px; 
+            align-items: center; 
+        }
+        
         .sobre-texto p { font-size: 1rem; margin-bottom: 25px; color: #555; text-align: justify; }
 
         .img-fachada {
@@ -196,9 +211,14 @@
         .facility-item h3 { font-size: 1.3rem; margin-bottom: 15px; color: var(--branco); font-weight: 700; }
         .facility-item p { font-size: 0.9rem; color: #999; }
 
-        /* ================= PORTFÓLIO (FOTOS 29, 35, 07) ================= */
+        /* ================= PORTFÓLIO ================= */
         .portfolio-section { background-color: var(--cinza-claro); }
-        .antes-depois-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
+        .antes-depois-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr;
+            gap: 15px; 
+            margin-bottom: 15px; 
+        }
         .img-box { position: relative; overflow: hidden; height: 400px; background-color: #ddd; }
         .img-box img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7); }
         
@@ -260,6 +280,9 @@
 
         /* ================= RODAPÉ ================= */
         footer { background-color: var(--preto-fosco); color: var(--branco); text-align: center; padding: 50px 20px; border-top: 1px solid #222; }
+        
+        .footer-contato { margin-top: 20px; margin-bottom: 30px; font-size: 0.95rem; color: #aaa; }
+        .footer-contato a { color: #fff; text-decoration: none; }
 
         /* ================= RESPONSIVIDADE ================= */
         @media (max-width: 768px) {
@@ -267,23 +290,23 @@
             .nav-links { display: none; }
             
             .hero { height: 75vh; }
+            .hero-logo { max-height: 90px; }
             .hero-frase { font-size: 0.9rem; margin-bottom: 25px; line-height: 1.4; }
             .btn-whatsapp { padding: 12px 25px; font-size: 0.8rem; }
 
             .titulo-luxo { font-size: 1.8rem; margin-bottom: 10px; }
             .linha-fina { margin-bottom: 30px; width: 40px; }
 
-            .sobre-grid { gap: 15px; grid-template-columns: 1fr; }
+            .sobre-grid { gap: 15px; }
             .sobre-texto p { font-size: 0.75rem; margin-bottom: 10px; line-height: 1.5; }
-            
-            .img-fachada { height: 220px; background-size: 150%; box-shadow: -10px 10px 0px var(--cinza-claro); }
+            .img-fachada { height: 280px; box-shadow: -8px 8px 0px var(--cinza-claro); }
 
-            .antes-depois-grid { grid-template-columns: 1fr; gap: 10px; }
+            .antes-depois-grid { gap: 10px; }
             .img-box { height: 200px; }
-            .texto-em-cima { font-size: 1rem; padding: 8px 15px; letter-spacing: 2px; }
+            .texto-em-cima { font-size: 0.9rem; padding: 5px 10px; letter-spacing: 2px; }
             .processo-box { height: 250px; }
 
-            .grid-duas-fotos { grid-template-columns: 1fr; gap: 10px; }
+            .grid-duas-fotos { gap: 10px; }
             .foto-destaque { height: 200px; }
         }
     </style>
@@ -306,8 +329,9 @@
     <header class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
+            <img src="Screenshot_20260404-200709~2.png" alt="Logo Yeshua Engenharia" class="hero-logo">
             <h1 class="hero-frase">Excelência, precisão e solidez na construção do seu empreendimento.</h1>
-            <a href="https://wa.me/5500000000000" class="btn-whatsapp" target="_blank">Fale com um Especialista</a>
+            <a href="https://wa.me/5592993523377" class="btn-whatsapp" target="_blank">Fale com um Especialista</a>
         </div>
     </header>
 
@@ -361,7 +385,7 @@
     </section>
 
     <section id="portfolio" class="section-padding portfolio-section">
-        <h2 class="titulo-luxo">Portfólio</h2>
+        <h2 class="titulo-luxo">Obras</h2>
         <div class="linha-fina"></div>
         
         <div class="antes-depois-grid">
@@ -391,7 +415,7 @@
             <div class="foto-destaque obra-2"></div>
         </div>
 
-        <a href="https://wa.me/5500000000000" id="contato" class="btn-whatsapp" target="_blank">Fale com um Especialista</a>
+        <a href="https://wa.me/5592993523377" id="contato" class="btn-whatsapp" target="_blank">Fale com um Especialista</a>
     </section>
 
     <footer>
@@ -400,9 +424,14 @@
             <div style="color: #ffffff; font-family: 'Playfair Display', serif; font-size: 1.6rem; letter-spacing: 1px; font-weight: 500;">Yeshua</div>
         </div>
         
-        <p style="color: #bbbbbb; font-size: 1.1rem; font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 30px;">
-            Desde 2014
+        <p style="color: #bbbbbb; font-size: 1rem; font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: 2px; text-transform: uppercase;">
+            Transformando projetos em realidade
         </p>
+
+        <div class="footer-contato">
+            <p>WhatsApp: <a href="https://wa.me/5592993523377" target="_blank">(92) 99352-3377</a></p>
+            <p>E-mail: <a href="mailto:Engenhariayeshua@gmail.com">Engenhariayeshua@gmail.com</a></p>
+        </div>
 
         <p style="color: #444444; font-size: 0.8rem;">&copy; 2026 Yeshua Engenharia. Todos os direitos reservados.</p>
     </footer>
