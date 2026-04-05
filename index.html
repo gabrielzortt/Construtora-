@@ -36,12 +36,12 @@
             font-weight: 700;
         }
 
-        /* ================= NAVBAR (MICRO DETALHE DE GLOW) ================= */
+        /* ================= NAVBAR (AJUSTADA PARA NÃO CORTAR) ================= */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 20px 6%;
+            padding: 20px 4%; /* Ajuste de respiro lateral */
             background: rgba(0, 0, 0, 0.98);
             backdrop-filter: blur(10px);
             display: flex;
@@ -49,16 +49,16 @@
             align-items: center;
             z-index: 1000;
             border-bottom: 1px solid rgba(197, 160, 89, 0.2); 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.8); /* Sombra projetada no fundo */
+            box-shadow: 0 4px 20px rgba(0,0,0,0.8);
             flex-wrap: nowrap;
         }
 
-        .nav-brand-container { display: flex; align-items: center; gap: 12px; }
-        .nav-logo-icon { max-height: 2rem; filter: invert(1); }
-        .nav-logo-text { color: var(--branco); font-family: 'Playfair Display', serif; font-size: 1.6rem; letter-spacing: 2px; }
+        .nav-brand-container { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+        .nav-logo-icon { max-height: 1.8rem; filter: invert(1); }
+        .nav-logo-text { color: var(--branco); font-family: 'Playfair Display', serif; font-size: 1.5rem; letter-spacing: 1px; }
 
-        .nav-links { list-style: none; display: flex; gap: 35px; margin: 0; padding: 0; }
-        .nav-links a { color: #aaaaaa; text-decoration: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; white-space: nowrap; }
+        .nav-links { list-style: none; display: flex; gap: 18px; margin: 0; padding: 0; } /* Gap reduzido e sem padding extra */
+        .nav-links a { color: #aaaaaa; text-decoration: none; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; white-space: nowrap; }
         .nav-links a:hover { color: var(--dourado); text-shadow: 0 0 5px var(--dourado-brilho); }
 
         /* ================= HERO (CRAVADO EM 75VH) ================= */
@@ -186,10 +186,10 @@
 
         /* ================= RESPONSIVIDADE ================= */
         @media (max-width: 768px) {
-            nav { padding: 15px 4%; }
-            .nav-logo-text { font-size: 1.2rem; }
-            .nav-links { gap: 15px; }
-            .nav-links a { font-size: 0.65rem; letter-spacing: 1px; }
+            nav { padding: 15px 3%; }
+            .nav-logo-text { font-size: 1.1rem; }
+            .nav-links { gap: 10px; }
+            .nav-links a { font-size: 0.6rem; letter-spacing: 0.5px; }
             
             .hero { height: 75vh; background-attachment: scroll; } /* Melhor desempenho mobile */
             .hero-frase { font-size: 1.6rem; }
@@ -334,3 +334,4 @@
 
 </body>
 </html>
+
