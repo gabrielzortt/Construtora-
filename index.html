@@ -22,66 +22,54 @@
             color: var(--branco); 
             overflow-x: hidden;
             line-height: 1.6;
-            padding-top: 80px; /* EVITA QUE A BARRA CORTE O CONTEÚDO */
         }
 
-        /* ================= NAVBAR (CORRIGIDA - SEM CORTES) ================= */
+        /* ================= NAVBAR (AJUSTADA: MENOR E MAIS JUNTO) ================= */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            height: 85px; /* ALTURA DEFINIDA PARA NÃO CORTAR */
-            padding: 0 6%;
+            padding: 15px 4%; /* Padding levemente reduzido para ganhar espaço */
             background: rgba(0, 0, 0, 0.98);
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(10px);
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
             border-bottom: 1px solid rgba(197, 160, 89, 0.2); 
-            box-shadow: 0 4px 30px rgba(0,0,0,0.9);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.8);
         }
 
-        .nav-brand-container { 
-            display: flex; 
-            align-items: center; 
-            gap: 15px; 
-            min-width: fit-content;
-        }
-        .nav-logo-icon { height: 2.2rem; filter: invert(1); }
-        .nav-logo-text { color: var(--branco); font-family: 'Playfair Display', serif; font-size: 1.7rem; letter-spacing: 2px; }
+        .nav-brand-container { display: flex; align-items: center; gap: 10px; }
+        .nav-logo-icon { max-height: 1.8rem; filter: invert(1); }
+        .nav-logo-text { color: var(--branco); font-family: 'Playfair Display', serif; font-size: 1.4rem; letter-spacing: 1px; }
 
-        .nav-links { 
-            list-style: none; 
-            display: flex; 
-            gap: 35px; 
-            align-items: center;
-        }
+        .nav-links { list-style: none; display: flex; gap: 18px; } /* GAP REDUZIDO PARA JUNTAR MAIS */
         .nav-links a { 
             color: #aaaaaa; 
             text-decoration: none; 
-            font-size: 0.8rem; 
+            font-size: 0.65rem; /* FONTE MENOR PARA NÃO CORTAR */
             text-transform: uppercase; 
-            letter-spacing: 2px; 
+            letter-spacing: 1px; 
             transition: 0.3s; 
-            white-space: nowrap;
+            white-space: nowrap; /* Impede que o texto quebre linha */
         }
-        .nav-links a:hover { color: var(--dourado); text-shadow: 0 0 8px var(--dourado-brilho); }
+        .nav-links a:hover { color: var(--dourado); text-shadow: 0 0 5px var(--dourado-brilho); }
 
-        /* ================= HERO (75VH) ================= */
+        /* ================= HERO (MANTIDO) ================= */
         .hero {
             position: relative;
             height: 75vh; 
             width: 100%;
             background-image: url('IMG-20260403-WA0124.jpg'); 
             background-repeat: no-repeat;
-            background-position: center 20%; /* Ajuste para ver melhor a construção */
-            background-size: cover;
+            background-position: center center;
+            background-size: cover; 
             display: flex;
             align-items: center; 
             justify-content: center; 
             text-align: center;
-            margin-top: -85px; /* Compensa o padding do body para a foto subir */
+            background-color: var(--preto-puro);
         }
 
         .hero-overlay {
@@ -92,20 +80,21 @@
         }
 
         .hero-content { position: relative; z-index: 2; padding: 0 20px; max-width: 900px; }
+
         .hero-frase { 
             color: #ffffff; 
-            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
             font-weight: 300; 
             letter-spacing: 3px; 
-            margin-bottom: 40px; 
-            text-shadow: 0 5px 20px rgba(0,0,0,0.8); 
+            margin-bottom: 45px; 
+            text-shadow: 0 10px 30px rgba(0,0,0,0.9); 
         }
 
         .btn-whatsapp {
             display: inline-block;
             background-color: transparent;
             color: var(--dourado); 
-            padding: 18px 50px;
+            padding: 18px 45px;
             font-size: 0.9rem;
             font-weight: 600;
             text-transform: uppercase;
@@ -113,14 +102,13 @@
             letter-spacing: 3px;
             border: 1px solid var(--dourado); 
             transition: 0.4s;
-            box-shadow: 0 0 15px rgba(197, 160, 89, 0.1);
         }
         .btn-whatsapp:hover { background-color: var(--dourado); color: var(--preto-puro); box-shadow: 0 0 30px var(--dourado-brilho); }
 
-        /* ================= SEÇÕES (STYLE REFINADO) ================= */
+        /* ================= SEÇÕES (MANTIDAS) ================= */
         .section-padding { padding: 100px 10%; }
         .titulo-luxo { font-size: 2.5rem; text-align: center; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 5px; font-family: 'Playfair Display', serif; }
-        .linha-fina { width: 80px; height: 3px; background-color: var(--dourado); margin: 0 auto 60px auto; box-shadow: 0 0 10px var(--dourado-brilho); }
+        .linha-fina { width: 70px; height: 3px; background-color: var(--dourado); margin: 0 auto 60px auto; box-shadow: 0 0 10px var(--dourado-brilho); }
 
         .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         .img-fachada { 
@@ -131,39 +119,46 @@
             border: 1px solid rgba(197, 160, 89, 0.3);
         }
 
+        .grid-obras { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card-obra { text-align: center; padding: 45px 30px; border: 1px solid #1a1a1a; background: var(--preto-fosco); transition: 0.5s; }
+        .card-obra:hover { border-color: var(--dourado); transform: translateY(-10px); }
+
         /* ================= PORTFÓLIO ================= */
         .antes-depois-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .img-box { position: relative; overflow: hidden; height: 500px; border: 1px solid #1a1a1a; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .img-box { position: relative; overflow: hidden; height: 500px; border: 1px solid #1a1a1a; }
         .img-box img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6); transition: 1s; }
         .img-box:hover img { filter: brightness(1); transform: scale(1.05); }
-        .texto-em-cima { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--branco); font-family: 'Playfair Display', serif; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 6px; text-shadow: 0 5px 20px rgba(0,0,0,0.9); border-bottom: 3px solid var(--dourado); padding-bottom: 8px; z-index: 2; }
+        .texto-em-cima { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--branco); font-family: 'Playfair Display', serif; font-size: 1.6rem; text-transform: uppercase; letter-spacing: 6px; text-shadow: 0 5px 20px rgba(0,0,0,0.9); border-bottom: 3px solid var(--dourado); padding-bottom: 8px; z-index: 2; }
 
         .grid-duas-fotos { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
-        .foto-destaque { width: 100%; height: 600px; background-size: cover; background-position: center; border: 1px solid #1a1a1a; }
+        .foto-destaque { width: 100%; height: 600px; background-size: cover; background-position: center; border: 1px solid #1a1a1a; box-shadow: 0 15px 40px rgba(0,0,0,0.9); }
         .obra-1 { background-image: url('IMG-20260404-WA0065.jpg'); } 
         .obra-2 { background-image: url('IMG-20260404-WA0064.jpg'); } 
 
         /* ================= RODAPÉ ================= */
-        footer { background: var(--preto-puro); padding: 50px 20px; text-align: center; border-top: 1px solid #1a1a1a; }
-        .footer-logo-container { display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 10px; }
-        .footer-logo-container img { height: 1.5rem; filter: invert(1); }
-        .footer-logo-container div { font-family: 'Playfair Display', serif; font-size: 1.6rem; letter-spacing: 2px; }
+        footer { background: var(--preto-puro); padding: 40px 20px; text-align: center; border-top: 1px solid #1a1a1a; }
+        .footer-logo-container { display: flex; justify-content: center; align-items: center; gap: 8px; margin-bottom: 5px; }
+        .footer-logo-container img { max-height: 1.4rem; filter: invert(1); }
+        .footer-logo-container div { font-family: 'Playfair Display', serif; font-size: 1.4rem; letter-spacing: 2px; }
 
-        /* ================= RESPONSIVIDADE ================= */
+        /* ================= RESPONSIVIDADE (FOCO NO HERO E NAV) ================= */
         @media (max-width: 768px) {
-            body { padding-top: 70px; }
-            nav { height: 75px; padding: 0 4%; }
-            .nav-logo-text { font-size: 1.3rem; }
-            .nav-links { gap: 15px; }
-            .nav-links a { font-size: 0.65rem; }
+            nav { padding: 10px 4%; }
+            .nav-logo-text { font-size: 1.1rem; }
+            .nav-links { gap: 10px; }
+            .nav-links a { font-size: 0.55rem; letter-spacing: 0.5px; }
             
-            .hero { height: 75vh; margin-top: -75px; background-position: center top; }
-            .hero-frase { font-size: 1.6rem; }
+            .hero { 
+                height: 75vh; 
+                background-size: cover;
+                background-position: center top; 
+            }
+            .hero-frase { font-size: 1.5rem; }
 
             .sobre-grid, .antes-depois-grid, .grid-duas-fotos { grid-template-columns: 1fr 1fr; gap: 10px; }
-            .img-fachada, .img-box, .foto-destaque { height: 240px; }
-            .section-padding { padding: 80px 5%; }
-            .texto-em-cima { font-size: 1rem; letter-spacing: 3px; }
+            .img-fachada, .img-box, .foto-destaque { height: 220px; }
+            .section-padding { padding: 60px 5%; }
+            .texto-em-cima { font-size: 0.8rem; letter-spacing: 2px; }
         }
     </style>
 </head>
@@ -196,7 +191,7 @@
         <div class="sobre-grid">
             <div class="sobre-texto">
                 <p>A <strong>YESHUA ENGENHARIA</strong> atua desde 2014 com uma equipe multidisciplinar de altíssimo nível, entregando soluções completas na Construção Civil e Obras Industriais.</p>
-                <p>Nosso compromisso inegociável é com a qualidade absoluta, a ética e a segurança, superando os padrões exigidos no mercado.</p>
+                <p>Nosso compromisso inegociável é com a qualidade absoluta, a ética e a segurança.</p>
             </div>
             <div class="img-fachada"></div>
         </div>
@@ -245,15 +240,14 @@
         </div>
     </section>
 
-    <footer id="contato">
+    <footer>
         <div class="footer-logo-container">
             <img src="Screenshot_20260404-200709~2.png" alt="Símbolo Yeshua">
             <div>Yeshua</div>
         </div>
-        <p style="color: var(--dourado); font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 20px;">TRANSFORMANDO PROJETOS EM REALIDADE</p>
-        <div class="footer-contato" style="margin-bottom: 20px;">
-            <a href="https://wa.me/5592993523377" style="color: #fff; text-decoration: none; margin: 0 15px; font-weight: 500;">(92) 99352-3377</a>
-            <a href="mailto:Engenhariayeshua@gmail.com" style="color: #fff; text-decoration: none; margin: 0 15px; font-weight: 500;">E-mail Comercial</a>
+        <p style="color: var(--dourado); font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 15px;">TRANSFORMANDO PROJETOS EM REALIDADE</p>
+        <div class="footer-contato" style="margin-bottom: 15px;">
+            <a href="https://wa.me/5592993523377" style="color: #fff; text-decoration: none; margin: 0 10px;">(92) 99352-3377</a>
         </div>
         <p style="color: #333; font-size: 0.75rem;">&copy; 2026 Yeshua Engenharia. Todos os direitos reservados.</p>
     </footer>
