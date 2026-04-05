@@ -9,8 +9,7 @@
         :root {
             --preto-puro: #000000;
             --preto-fosco: #0a0a0a;
-            --dourado: #C5A059;
-            --dourado-brilho: rgba(197, 160, 89, 0.4);
+            --dourado: #C5A059; /* Dourado Champagne sofisticado */
             --cinza-texto: #aaaaaa;
             --branco: #ffffff;
         }
@@ -24,8 +23,8 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--preto-puro);
-            color: var(--branco);
+            background-color: var(--preto-puro); 
+            color: var(--branco); 
             overflow-x: hidden;
             line-height: 1.6;
         }
@@ -35,48 +34,50 @@
             font-weight: 700;
         }
 
-        /* ================= NAVBAR (MAIS ESPAÇADA) ================= */
+        /* ================= NAVBAR (ARRUMADA) ================= */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 20px 8%; /* Aumentei o respiro lateral */
+            padding: 20px 6%; /* Aumentei o padding para não cortar */
             background: rgba(0, 0, 0, 0.98);
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(10px);
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2); 
+            flex-wrap: nowrap;
         }
 
-        .nav-brand-container { display: flex; align-items: center; gap: 15px; }
-        .nav-logo-icon { max-height: 2.2rem; filter: invert(1); }
+        .nav-brand-container { display: flex; align-items: center; gap: 12px; }
+        .nav-logo-icon { max-height: 2rem; filter: invert(1); }
         .nav-logo-text { color: var(--branco); font-family: 'Playfair Display', serif; font-size: 1.6rem; letter-spacing: 2px; }
 
-        .nav-links { list-style: none; display: flex; gap: 35px; margin: 0; padding: 0; } /* GAP aumentado */
-        .nav-links a { color: #888; text-decoration: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.4s; white-space: nowrap; }
-        .nav-links a:hover { color: var(--dourado); text-shadow: 0 0 8px var(--dourado-brilho); }
+        .nav-links { list-style: none; display: flex; gap: 35px; margin: 0; padding: 0; } /* GAP aumentado para não colar */
+        .nav-links a { color: #aaaaaa; text-decoration: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; white-space: nowrap; }
+        .nav-links a:hover { color: var(--dourado); }
 
-        /* ================= HERO (MEDIDAS ORIGINAIS RESTAURADAS) ================= */
+        /* ================= HERO (CRAVADO EM 75VH) ================= */
         .hero {
             position: relative;
-            height: 100vh; /* VOLTOU PARA A MEDIDA DO SEU CÓDIGO */
+            height: 75vh; /* EXATAMENTE COMO VOCÊ PEDIU */
             width: 100%;
             background-image: url('IMG-20260403-WA0124.jpg'); 
             background-attachment: fixed;
             background-position: center center;
             background-size: cover;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: center; 
+            justify-content: center; 
             text-align: center;
+            background-color: var(--preto-puro);
         }
 
         .hero-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.8));
+            background: rgba(0, 0, 0, 0.5); 
             z-index: 1;
         }
 
@@ -84,89 +85,116 @@
             position: relative;
             z-index: 2;
             padding: 0 20px;
-            max-width: 1000px;
+            max-width: 900px;
         }
 
         .hero-frase { 
             color: #ffffff; 
-            font-size: clamp(1.8rem, 5vw, 3rem); /* Responsivo e impoente */
+            font-size: 2.2rem; 
             font-weight: 300; 
-            letter-spacing: 3px; 
-            margin-bottom: 45px; 
-            text-shadow: 0 10px 30px rgba(0,0,0,0.9); 
+            letter-spacing: 2px; 
+            margin-bottom: 40px; 
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.8); 
         }
 
         .btn-whatsapp {
             display: inline-block;
             background-color: transparent;
-            color: var(--dourado);
-            padding: 18px 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
+            color: var(--dourado); 
+            padding: 15px 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
             text-transform: uppercase;
             text-decoration: none;
-            letter-spacing: 3px;
-            border: 1px solid var(--dourado);
-            transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 0 15px rgba(197, 160, 89, 0.1);
+            letter-spacing: 2px;
+            border: 1px solid var(--dourado); 
+            transition: 0.4s;
         }
-        .btn-whatsapp:hover { background-color: var(--dourado); color: var(--preto-puro); box-shadow: 0 0 30px var(--dourado-brilho); }
+        .btn-whatsapp:hover { background-color: var(--dourado); color: var(--preto-puro); }
 
-        /* ================= SEÇÕES ================= */
-        .section-padding { padding: 120px 10%; }
-        .titulo-luxo { font-size: 2.5rem; text-align: center; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 5px; color: var(--branco); }
-        .linha-fina { width: 80px; height: 2px; background-color: var(--dourado); margin: 0 auto 60px auto; box-shadow: 0 0 10px var(--dourado-brilho); }
+        /* ================= SEÇÕES GERAIS ================= */
+        .section-padding { padding: 100px 10%; }
+        .titulo-luxo { font-size: 2.2rem; text-align: center; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 3px; color: var(--branco); }
+        .linha-fina { width: 50px; height: 2px; background-color: var(--dourado); margin: 0 auto 50px auto; }
 
         /* ================= QUEM SOMOS ================= */
-        .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .sobre-texto p { font-size: 1.1rem; margin-bottom: 30px; color: #bbb; text-align: justify; }
+        .sobre-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 50px; 
+            align-items: center; 
+        }
+        .sobre-texto p { font-size: 1rem; margin-bottom: 25px; color: #ccc; text-align: justify; }
         .img-fachada { 
-            width: 100%; height: 500px; 
+            width: 100%; 
+            height: 450px; 
             background-image: url('IMG-20260403-WA0126.jpg'); 
-            background-size: cover; background-position: center; 
-            border: 1px solid rgba(255,255,255,0.05);
-            box-shadow: -20px 20px 0px var(--preto-fosco); 
+            background-size: cover; 
+            background-position: center; 
+            box-shadow: -15px 15px 0px var(--preto-fosco); 
+            border: 1px solid rgba(197, 160, 89, 0.3);
         }
 
         /* ================= SERVIÇOS ================= */
-        .grid-obras { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .card-obra { text-align: center; padding: 45px 30px; border: 1px solid #1a1a1a; background: var(--preto-fosco); transition: 0.5s; }
-        .card-obra:hover { border-color: var(--dourado); transform: translateY(-10px); }
-        .card-obra h3 { font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; color: var(--dourado); }
-        .card-obra p { font-size: 0.9rem; color: #888; }
+        .grid-obras { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+        .card-obra { text-align: center; padding: 30px 20px; border: 1px solid #1a1a1a; background: var(--preto-fosco); transition: all 0.4s ease; }
+        .card-obra:hover { border-color: var(--dourado); transform: translateY(-5px); }
+        .card-obra h3 { font-size: 1rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; color: var(--dourado); }
+        .card-obra p { font-size: 0.85rem; color: #aaa; }
 
-        /* ================= PORTFÓLIO (TEXTO SOMBREADO) ================= */
-        .antes-depois-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
-        .img-box { position: relative; overflow: hidden; height: 500px; border: 1px solid #1a1a1a; }
-        .img-box img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6); transition: 0.8s ease; }
-        .img-box:hover img { filter: brightness(0.9); transform: scale(1.05); }
-        .texto-em-cima { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--branco); font-family: 'Playfair Display', serif; font-size: 2rem; text-transform: uppercase; letter-spacing: 6px; text-shadow: 0 5px 20px rgba(0,0,0,0.9); border-bottom: 2px solid var(--dourado); padding-bottom: 8px; z-index: 2; pointer-events: none; }
-        .processo-box { width: 100%; height: 600px; margin-bottom: 80px; }
+        /* ================= MANUTENÇÃO ================= */
+        .facilities-section { background-color: var(--preto-fosco); color: var(--branco); text-align: center; border-top: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; }
+        .facilities-grid { display: flex; justify-content: center; gap: 30px; margin-top: 30px; flex-wrap: wrap; }
+        .facility-item { max-width: 350px; background: rgba(255,255,255,0.02); padding: 40px 30px; border: 1px solid rgba(197, 160, 89, 0.1); }
+        .facility-item h3 { font-size: 1.3rem; margin-bottom: 15px; color: var(--branco); font-weight: 700; }
+        .facility-item p { font-size: 0.9rem; color: #999; }
 
-        /* ================= EXCELÊNCIA ================= */
-        .grid-duas-fotos { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
-        .foto-destaque { width: 100%; height: 600px; background-size: cover; background-position: center; border: 1px solid #1a1a1a; }
+        /* ================= PORTFÓLIO ================= */
+        .portfolio-section { background-color: var(--preto-puro); }
+        .antes-depois-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
+        .img-box { position: relative; overflow: hidden; height: 400px; background-color: #000; border: 1px solid #1a1a1a; }
+        .img-box img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6); transition: 0.5s; }
+        .img-box:hover img { filter: brightness(1); }
+        .texto-em-cima { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--branco); font-family: 'Playfair Display', serif; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 4px; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); border-bottom: 2px solid var(--dourado); padding-bottom: 5px; z-index: 2; }
+        .processo-box { width: 100%; height: 450px; margin-bottom: 60px; }
+
+        /* ================= PROJETOS DE EXCELÊNCIA ================= */
+        .projetos-destaque { background-color: var(--preto-puro); color: var(--branco); text-align: center; padding: 90px 10%; border-top: 1px solid #1a1a1a; }
+        .projetos-destaque p { font-size: 1.1rem; color: #aaa; margin-bottom: 50px; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .grid-duas-fotos { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 50px; }
+        .foto-destaque { width: 100%; height: 450px; background-size: cover; background-position: center; border: 1px solid #1a1a1a; transition: 0.5s; }
+        .foto-destaque:hover { border-color: var(--dourado); }
         .obra-1 { background-image: url('IMG-20260404-WA0065.jpg'); } 
         .obra-2 { background-image: url('IMG-20260404-WA0064.jpg'); } 
 
         /* ================= RODAPÉ ================= */
-        footer { background: #000; padding: 60px 20px; text-align: center; border-top: 1px solid #1a1a1a; }
-        .footer-logo-container { display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 15px; }
+        footer { background-color: var(--preto-puro); color: var(--branco); text-align: center; padding: 30px 20px; border-top: 1px solid #1a1a1a; }
+        .footer-logo-container { display: flex; justify-content: center; align-items: center; gap: 8px; margin-bottom: 5px; }
         .footer-logo-container img { max-height: 1.5rem; filter: invert(1); }
-        .footer-logo-container div { font-family: 'Playfair Display', serif; font-size: 1.5rem; letter-spacing: 2px; }
-        .footer-contato { display: flex; justify-content: center; gap: 30px; margin: 20px 0; color: #666; font-size: 0.9rem; }
-        .footer-contato a { color: var(--dourado); text-decoration: none; font-weight: 600; }
+        .footer-logo-container div { color: #ffffff; font-family: 'Playfair Display', serif; font-size: 1.4rem; letter-spacing: 2px; font-weight: 500; }
+        .footer-slogan { color: var(--dourado); font-size: 0.8rem; font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+        .footer-contato { margin-bottom: 15px; font-size: 0.85rem; color: #aaa; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+        .footer-contato a { color: #fff; text-decoration: none; transition: color 0.3s; }
+        .footer-contato a:hover { color: var(--dourado); }
+        .footer-copyright { color: #333; font-size: 0.75rem; }
 
-        /* ================= MOBILE ================= */
+        /* ================= RESPONSIVIDADE ================= */
         @media (max-width: 768px) {
-            nav { padding: 15px 5%; }
-            .nav-links { display: none; } /* Esconde links no mobile para não amontoar */
-            .hero { height: 85vh; }
-            .hero-frase { font-size: 1.6rem; }
-            .sobre-grid, .antes-depois-grid, .grid-duas-fotos { grid-template-columns: 1fr 1fr; gap: 10px; }
-            .img-fachada, .img-box, .foto-destaque { height: 280px; }
-            .texto-em-cima { font-size: 1rem; letter-spacing: 3px; }
-            .section-padding { padding: 80px 5%; }
+            nav { padding: 15px 4%; }
+            .nav-logo-text { font-size: 1.2rem; }
+            .nav-links { gap: 15px; }
+            .nav-links a { font-size: 0.65rem; }
+            
+            .hero { height: 75vh; } /* MANTIDO EM 75VH */
+            .hero-frase { font-size: 1.5rem; }
+
+            .section-padding { padding: 60px 5%; }
+            .sobre-grid { grid-template-columns: 1fr 1fr; gap: 15px; }
+            .img-fachada { height: 220px; }
+            .antes-depois-grid { grid-template-columns: 1fr 1fr; gap: 10px; } 
+            .img-box { height: 200px; }
+            .grid-duas-fotos { grid-template-columns: 1fr 1fr; gap: 10px; } 
+            .foto-destaque { height: 180px; } 
         }
     </style>
 </head>
@@ -174,12 +202,12 @@
 
     <nav>
         <div class="nav-brand-container">
-            <img src="Screenshot_20260404-200709~2.png" alt="Yeshua Logo" class="nav-logo-icon">
+            <img src="Screenshot_20260404-200709~2.png" alt="Símbolo Yeshua" class="nav-logo-icon">
             <div class="nav-logo-text">Yeshua</div>
         </div>
         <ul class="nav-links">
             <li><a href="#sobre">Empresa</a></li>
-            <li><a href="#servicos">Expertise</a></li>
+            <li><a href="#servicos">Especialidades</a></li>
             <li><a href="#portfolio">Obras</a></li>
             <li><a href="#contato">Contato</a></li>
         </ul>
@@ -205,28 +233,47 @@
         </div>
     </section>
 
-    <section id="servicos" class="section-padding" style="background: #050505;">
-        <h2 class="titulo-luxo">Especialidades</h2>
+    <section id="servicos" class="section-padding" style="background: var(--preto-puro);">
+        <h2 class="titulo-luxo">Engenharia e Projetos</h2>
         <div class="linha-fina"></div>
         <div class="grid-obras">
             <div class="card-obra">
                 <h3>Construção Civil</h3>
-                <p>Execução rigorosa de superestrutura, infraestrutura e fundações com máxima precisão.</p>
+                <p>Execução rigorosa de superestrutura, infraestrutura e fundações. Do pilar à laje, construímos com máxima precisão.</p>
             </div>
             <div class="card-obra">
                 <h3>Instalações Técnicas</h3>
-                <p>Projetos e execução de sistemas hidráulicos e elétricos de alta performance.</p>
+                <p>Projetos e execução de instalações hidráulicas e elétricas de alta performance para indústrias e corporações.</p>
             </div>
             <div class="card-obra">
                 <h3>Laudos & Projetos</h3>
-                <p>Cálculos minuciosos e laudos técnicos essenciais para a segurança jurídica e estrutural.</p>
+                <p>Elaboração de diagramas, cálculos minuciosos e laudos técnicos essenciais para atestar a segurança da obra.</p>
             </div>
         </div>
     </section>
 
-    <section id="portfolio" class="section-padding">
+    <section class="section-padding facilities-section">
+        <h2 class="titulo-luxo">Manutenção e Conservação</h2>
+        <div class="linha-fina"></div>
+        <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto; color: #aaa;">
+            Cuidamos do seu patrimônio com o mesmo rigor que construímos.
+        </p>
+        <div class="facilities-grid">
+            <div class="facility-item">
+                <h3>Limpeza & Conservação</h3>
+                <p>Garantimos a manutenção impecável de ambientes industriais e corporativos, com processos de alto padrão.</p>
+            </div>
+            <div class="facility-item">
+                <h3>Portaria & Controle</h3>
+                <p>Profissionais qualificados para controle de acesso e segurança patrimonial, 24 horas por dia.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="section-padding portfolio-section">
         <h2 class="titulo-luxo">Obras</h2>
         <div class="linha-fina"></div>
+        
         <div class="antes-depois-grid">
             <div class="img-box">
                 <img src="IMG-20260403-WA0029.jpg" alt="Obra Antes">
@@ -237,31 +284,40 @@
                 <div class="texto-em-cima">Depois</div>
             </div>
         </div>
+
         <div class="img-box processo-box">
-            <img src="IMG-20260404-WA0107.jpg" alt="Execução Técnica">
-            <div class="texto-em-cima">Execução Técnica</div>
+            <img src="IMG-20260404-WA0107.jpg" alt="Processo">
+            <div class="texto-em-cima">Processo</div>
         </div>
     </section>
 
-    <section class="section-padding" style="background: #050505;">
-        <h2 class="titulo-luxo">Excelência</h2>
+    <section class="projetos-destaque">
+        <h2 class="titulo-luxo">Projetos de Excelência</h2>
         <div class="linha-fina"></div>
+        <p>Entregamos resultados que superam rigorosos padrões de qualidade e segurança exigidos por grandes instituições corporativas.</p>
+        
         <div class="grid-duas-fotos">
             <div class="foto-destaque obra-1"></div>
             <div class="foto-destaque obra-2"></div>
         </div>
+
+        <a href="https://wa.me/5592993523377" id="contato" class="btn-whatsapp" target="_blank">Fale com um Especialista</a>
     </section>
 
     <footer>
         <div class="footer-logo-container">
-            <img src="Screenshot_20260404-200709~2.png" alt="Yeshua">
+            <img src="Screenshot_20260404-200709~2.png" alt="Símbolo Yeshua">
             <div>Yeshua</div>
         </div>
+        
+        <p class="footer-slogan">Transformando projetos em realidade</p>
+
         <div class="footer-contato">
             <span>WhatsApp: <a href="https://wa.me/5592993523377" target="_blank">(92) 99352-3377</a></span>
             <span>E-mail: <a href="mailto:Engenhariayeshua@gmail.com">Engenhariayeshua@gmail.com</a></span>
         </div>
-        <p style="color: #333; font-size: 0.7rem; letter-spacing: 2px;">© 2026 YESHUA ENGENHARIA. TODOS OS DIREITOS RESERVADOS.</p>
+
+        <p class="footer-copyright">&copy; 2026 Yeshua Engenharia. Todos os direitos reservados.</p>
     </footer>
 
 </body>
