@@ -47,7 +47,7 @@
             align-items: center;
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            flex-wrap: nowrap; /* Trava em uma linha só */
+            flex-wrap: nowrap;
         }
 
         .nav-brand-container {
@@ -69,7 +69,7 @@
             font-size: 1.5rem;
             letter-spacing: 1px;
             font-weight: 500;
-            white-space: nowrap; /* Não quebra o texto */
+            white-space: nowrap;
         }
 
         .nav-links {
@@ -79,7 +79,7 @@
             gap: 25px;
             margin: 0;
             padding: 0;
-            flex-wrap: nowrap; /* Trava em uma linha só */
+            flex-wrap: nowrap;
         }
 
         .nav-links a {
@@ -89,31 +89,32 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: color 0.3s ease;
-            white-space: nowrap; /* Mantém as palavras inteiras */
+            white-space: nowrap;
         }
 
         .nav-links a:hover { color: var(--branco); }
 
-        /* ================= HERO COM ALTURA REDUZIDA E LOGO PERFEITA ================= */
+        /* ================= HERO (FUNDO ESTRATÉGICO) ================= */
         .hero {
             position: relative;
-            height: 75vh; /* Altura reduzida de 90vh para 75vh */
+            height: 85vh; 
             width: 100%;
             background-image: url('IMG-20260403-WA0124.jpg'); 
-            background-attachment: fixed;
+            background-attachment: fixed; /* Parallax ligado só no PC */
             background-position: center;
-            background-size: cover;
+            background-size: cover; 
             background-repeat: no-repeat;
             display: flex;
-            align-items: center;
+            align-items: flex-end; /* Joga o conteúdo mais pra baixo */
             justify-content: center;
             background-color: var(--preto-puro);
         }
 
+        /* Overlay que escurece SÓ a parte de baixo pro texto ficar legível */
         .hero-overlay {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.4);
+            bottom: 0; left: 0; width: 100%; height: 60%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
             z-index: 1;
         }
 
@@ -121,27 +122,16 @@
             position: relative;
             z-index: 2;
             text-align: center;
-            padding: 0 20px;
-            margin-top: 60px; 
+            padding: 0 20px 60px 20px; /* Espaço embaixo */
             max-width: 800px;
-        }
-
-        /* LOGO DO HERO CORRIGIDA (PROPORÇÕES PERFEITAS) */
-        .hero-logo-image {
-            width: 100%;
-            max-width: 250px; /* Limita o tamanho, mas mantém a proporção */
-            height: auto; /* Deixa a altura se ajustar naturalmente, sem espremer */
-            margin: 0 auto 30px auto;
-            display: block;
-            filter: invert(1);
         }
 
         .hero-frase {
             color: #ffffff;
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             font-weight: 300;
             letter-spacing: 1px;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
         }
 
@@ -149,7 +139,7 @@
             display: inline-block;
             background-color: transparent;
             color: var(--branco);
-            padding: 10px 30px;
+            padding: 12px 35px;
             font-size: 0.85rem;
             font-weight: 500;
             text-transform: uppercase;
@@ -292,45 +282,45 @@
         .footer-contato { margin-top: 20px; margin-bottom: 30px; font-size: 0.95rem; color: #aaa; }
         .footer-contato a { color: #fff; text-decoration: none; }
 
-        /* ================= RESPONSIVIDADE (ELEGANTE E LADO A LADO) ================= */
+        /* ================= RESPONSIVIDADE (CELULAR PERFEITO) ================= */
         @media (max-width: 768px) {
-            /* AJUSTE FINO DA BARRA PARA CABER TUDO EM UMA LINHA */
+            /* BARRA TRAVADA */
             nav { padding: 10px 2%; }
             .nav-brand-container { gap: 5px; }
             .nav-logo-icon { max-height: 1.2rem; }
             .nav-logo-text { font-size: 1.1rem; }
-            
             .nav-links { gap: 10px; } 
             .nav-links a { font-size: 0.6rem; letter-spacing: 0px; }
             
-            .section-padding { padding: 60px 5%; }
-            
-            .hero { height: 75vh; }
-            
-            /* Logo agora ajusta perfeitamente sem amassar */
-            .hero-logo-image { 
-                max-width: 200px; /* Um pouco menor no celular, mas PROPORCIONAL */
-                margin-bottom: 20px;
+            /* HERO: MATANDO O BUG DO PARALLAX */
+            .hero { 
+                height: 70vh; 
+                background-attachment: scroll; /* Desliga o parallax pro celular não bugar */
+                background-size: 100% auto; /* A IMAGEM NÃO CORTA: Fica 100% inteira na tela */
+                background-position: top center; /* Joga a foto com a logo pro topo da tela */
             }
             
-            .hero-frase { font-size: 0.95rem; margin-bottom: 25px; line-height: 1.4; }
+            /* Espaço pra frase e o botão descerem legal no celular */
+            .hero-content { padding-bottom: 30px; }
+            .hero-frase { font-size: 1.1rem; margin-bottom: 25px; line-height: 1.4; }
             .btn-whatsapp { padding: 12px 25px; font-size: 0.8rem; }
 
+            .section-padding { padding: 60px 5%; }
             .titulo-luxo { font-size: 1.8rem; margin-bottom: 10px; }
             .linha-fina { margin-bottom: 30px; width: 40px; }
 
-            /* Mantém o grid Lado a Lado no celular, mas adapta alturas e tamanhos */
-            .sobre-grid { gap: 15px; grid-template-columns: 1fr 1fr; /* Força lado a lado */ }
-            .sobre-texto p { font-size: 0.8rem; margin-bottom: 10px; line-height: 1.5; }
-            .img-fachada { height: 280px; box-shadow: -8px 8px 0px var(--cinza-claro); }
+            /* MATANDO O NEGOÇO IMENSO: Tudo em coluna única no celular pra ficar elegante */
+            .sobre-grid { grid-template-columns: 1fr; gap: 20px; } 
+            .sobre-texto p { font-size: 0.9rem; margin-bottom: 10px; line-height: 1.5; }
+            .img-fachada { height: 250px; box-shadow: -8px 8px 0px var(--cinza-claro); }
 
-            .antes-depois-grid { grid-template-columns: 1fr 1fr; /* Força lado a lado */ gap: 10px; }
-            .img-box { height: 200px; }
+            .antes-depois-grid { grid-template-columns: 1fr; gap: 15px; } 
+            .img-box { height: 250px; }
             .texto-em-cima { font-size: 0.9rem; padding: 5px 10px; letter-spacing: 2px; }
             .processo-box { height: 250px; }
 
-            .grid-duas-fotos { grid-template-columns: 1fr 1fr; /* Força lado a lado */ gap: 10px; }
-            .foto-destaque { height: 200px; }
+            .grid-duas-fotos { grid-template-columns: 1fr; gap: 15px; } 
+            .foto-destaque { height: 250px; }
         }
     </style>
 </head>
@@ -352,7 +342,6 @@
     <header class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <img src="Screenshot_20260404-200709~2.png" alt="Logo Yeshua Engenharia" class="hero-logo-image">
             <h1 class="hero-frase">Excelência, precisão e solidez na construção do seu empreendimento.</h1>
             <a href="https://wa.me/5592993523377" class="btn-whatsapp" target="_blank">Fale com um Especialista</a>
         </div>
@@ -431,7 +420,7 @@
     <section class="projetos-destaque">
         <h2 class="titulo-luxo" style="font-size: 1.8rem;">Projetos de Excelência</h2>
         <div class="linha-fina" style="margin-bottom: 20px;"></div>
-        <p>Entregamos resultados que superam rigorosos padrões de qualidade e segurança exigidos por grandes institutions corporativas.</p>
+        <p>Entregamos resultados que superam rigorosos padrões de qualidade e segurança exigidos por grandes instituições corporativas.</p>
         
         <div class="grid-duas-fotos">
             <div class="foto-destaque obra-1"></div>
