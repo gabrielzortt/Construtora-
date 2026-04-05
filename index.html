@@ -39,7 +39,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 10px 5%;
+            padding: 15px 5%;
             background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(10px);
             display: flex;
@@ -47,6 +47,7 @@
             align-items: center;
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            flex-wrap: wrap; /* Permite que os itens se ajustem */
         }
 
         .nav-brand-container {
@@ -75,6 +76,8 @@
             list-style: none;
             display: flex;
             gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .nav-links a {
@@ -116,16 +119,19 @@
             z-index: 2;
             text-align: center;
             padding: 0 20px;
-            margin-top: 50px; 
+            margin-top: 80px; /* Mais espaço pro menu em cima */
             max-width: 800px;
         }
 
         .hero-logo {
-            max-height: 120px;
-            max-width: 100%;
-            object-fit: contain;
-            margin-bottom: 25px;
+            width: auto;
+            max-width: 90%;
+            height: auto;
+            max-height: 180px; /* Aumentei o espaço máximo pra ela respirar */
+            margin: 0 auto 30px auto;
+            display: block;
             filter: invert(1);
+            object-fit: contain; /* Garante que a imagem toda caiba no espaço */
         }
 
         .hero-frase {
@@ -287,18 +293,29 @@
         /* ================= RESPONSIVIDADE ================= */
         @media (max-width: 768px) {
             .section-padding { padding: 60px 5%; }
-            .nav-links { display: none; }
             
-            .hero { height: 75vh; }
-            .hero-logo { max-height: 90px; }
-            .hero-frase { font-size: 0.9rem; margin-bottom: 25px; line-height: 1.4; }
+            /* Ajustes do menu para celular (SEM ESCONDER!) */
+            nav { flex-direction: column; gap: 10px; padding: 15px 5%; }
+            .nav-links { gap: 12px; }
+            .nav-links a { font-size: 0.7rem; }
+            
+            .hero { height: 85vh; }
+            .hero-content { margin-top: 100px; } /* Desce um pouco para não bater no menu duplo */
+            
+            /* Logo agora fica solta e não vai mais cortar! */
+            .hero-logo { 
+                max-height: 140px; 
+                margin-bottom: 20px;
+            }
+            
+            .hero-frase { font-size: 0.95rem; margin-bottom: 25px; line-height: 1.4; }
             .btn-whatsapp { padding: 12px 25px; font-size: 0.8rem; }
 
             .titulo-luxo { font-size: 1.8rem; margin-bottom: 10px; }
             .linha-fina { margin-bottom: 30px; width: 40px; }
 
             .sobre-grid { gap: 15px; }
-            .sobre-texto p { font-size: 0.75rem; margin-bottom: 10px; line-height: 1.5; }
+            .sobre-texto p { font-size: 0.8rem; margin-bottom: 10px; line-height: 1.5; }
             .img-fachada { height: 280px; box-shadow: -8px 8px 0px var(--cinza-claro); }
 
             .antes-depois-grid { gap: 10px; }
@@ -319,7 +336,7 @@
             <div class="nav-logo-text">Yeshua</div>
         </div>
         <ul class="nav-links">
-            <li><a href="#sobre">A Construtora</a></li>
+            <li><a href="#sobre">A Empresa</a></li>
             <li><a href="#servicos">Especialidades</a></li>
             <li><a href="#portfolio">Obras</a></li>
             <li><a href="#contato">Fale Conosco</a></li>
